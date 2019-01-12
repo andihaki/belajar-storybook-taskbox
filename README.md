@@ -34,3 +34,7 @@ mendaftarkan _action_ / fungsi klik
 ## add()
 
 menambahkan menu di sebelah kiri
+
+## addDecorator()
+
+menambahkan _context_ pada saat rendering. misalnya css style

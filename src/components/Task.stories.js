@@ -13,7 +13,7 @@ export const task = {
 
 export const actions = {
   onPinTask: action("onPintask"),
-  onArchieveTask: action("onArchiveTask")
+  onArchiveTask: action("onArchiveTask")
 };
 
 storiesOf("Task", module)
