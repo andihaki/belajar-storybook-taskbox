@@ -4,11 +4,9 @@ import store from "./lib/redux";
 
 import TaskList from "./components/TaskList";
 
-import logo from "./logo.svg";
-import "./App.css";
-
 class App extends Component {
   render() {
+    console.log(store);
     return (
       <Provider store={store}>
         <TaskList />

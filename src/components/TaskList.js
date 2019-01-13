@@ -70,14 +70,21 @@ PureTaskList.defaultProps = {
   loading: false
 };
 
-export default connect(
-  ({ tasks }) => ({
+const mapStateToProps = ({ tasks }) => {
+  // console.log(tasks);
+  return {
     tasks: tasks.filter(
       t => t.state === "TASK_INBOX" || t.state === "TASK_PINNED"
     )
-  }),
-  dispatch => ({
-    onArchiveTask: id => dispatch(archiveTask(id)),
-    onPinTask: id => dispatch(pinTask(id))
-  })
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onArchiveTask: id => dispatch(archiveTask(id)),
+  onPinTask: id => dispatch(pinTask(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(PureTaskList);

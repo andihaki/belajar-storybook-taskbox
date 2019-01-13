@@ -26,7 +26,7 @@ const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => (
     {/* logo bintang */}
     <div className="actions" onClick={event => event.stopPropagation()}>
       {state !== "TASK_ARCHIVED" && (
-        <a onClick={() => onPinTask(id)}>
+        <a onClick={() => onPinTask(id)} href="#damnEsLint">
           <span className={`icon-star`} />
         </a>
       )}

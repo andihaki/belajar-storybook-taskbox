@@ -10,7 +10,7 @@ export const archiveTask = id => ({ type: actions.ARCHIVE_TASK, id });
 export const pinTask = id => ({ type: actions.PIN_TASK, id });
 
 // reducers part
-const taskStateReducer = taskState => {
+function taskStateReducer(taskState) {
   return (state, action) => {
     return {
       ...state,
@@ -19,7 +19,7 @@ const taskStateReducer = taskState => {
       )
     };
   };
-};
+}
 
 // bagaimana reducer merubah data berdasarkan actions
 export const reducer = (state, action) => {
