@@ -1,6 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { withKnobs, object } from "@storybook/addon-knobs/react";
 
 import Task from "./Task";
 
@@ -16,13 +17,21 @@ export const actions = {
   onArchiveTask: action("onArchiveTask")
 };
 
+const longTitle = `pergi ke kantor, tapi sebelum itu isi bensin, sebelumnya lagi isi angin di ban`;
+
 storiesOf("Task", module)
-  .add("default", () => <Task task={task} {...actions} />)
+  .addDecorator(withKnobs)
+  .add("default", () => (
+    <Task task={object("task", { ...task })} {...actions} />
+  ))
   .add("pinned", () => (
     <Task task={{ ...task, state: "TASK_PINNED" }} {...actions} />
   ))
   .add("archived", () => (
     <Task task={{ ...task, state: "TASK_ARCHIVED" }} {...actions} />
+  ))
+  .add("long title", () => (
+    <Task task={{ ...task, title: longTitle }} {...actions} />
   ));
 
 // https://www.learnstorybook.com/react/en/simple-component/

@@ -1,10 +1,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { Provider } from "react-redux";
 
-import PureTaskList from "./TaskList";
+import { PureTaskList } from "./TaskList";
 import { task, actions } from "./Task.stories";
-import store from "../lib/redux";
 
 export const defaultTasks = [
   { ...task, id: "1", title: "Task 1" },
@@ -21,11 +19,7 @@ export const withPinnedTasks = [
 ];
 
 storiesOf("TaskList", module)
-  .addDecorator(story => (
-    <Provider store={store}>
-      <div style={{ padding: "3rem" }}>{story()}</div>
-    </Provider>
-  ))
+  .addDecorator(story => <div style={{ padding: "3rem" }}>{story()}</div>)
   .add("default", () => <PureTaskList tasks={defaultTasks} {...actions} />)
   .add("withPinnedTasks", () => (
     <PureTaskList tasks={withPinnedTasks} {...actions} />
